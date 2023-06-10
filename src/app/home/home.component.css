@@ -1,0 +1,97 @@
+.container-fluid {
+  position: relative;
+}
+
+.navbar {
+  width: 100%;
+  top: 0;
+  height: 55px;
+  position: fixed;
+  z-index: 998;
+}
+
+.container {
+  height: calc(100vh - 85px);
+  max-height: calc(100vh - 85px);
+  overflow: hidden;
+  top: 55px;
+  bottom: 30px;
+  width: 100vw;
+  max-width: 100%;
+  position: absolute;
+  padding: 0;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/images/1.jpeg");
+  background-color: #b6b6b667;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.navbar-brand {
+  font-family: "Lucida Handwriting", sans-serif;
+  font-weight: 900;
+  font-size: 36px;
+  padding-left: 15px;
+  color: teal;
+}
+
+ul,
+li {
+  font-weight: 600;
+  overflow: hidden;
+}
+
+li:hover {
+  border-bottom: 3px solid #363636;
+}
+
+.container .card {
+  background-color: #ffffffb2;
+  width: 100%;
+  height: max-content;
+  max-width: 600px;
+  margin-top: 15px;
+}
+
+.container .card .card-title {
+  font-size: 30px;
+  font-weight: 600;
+  color: #eb4f4f;
+}
+
+.form-control {
+  font-size: 14px;
+}
+
+.form-floating .form-control {
+  height: 45px;
+}
+
+.form-floating label {
+  font-size: 12px;
+}
+
+.form-control .submit-btn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit-btn button {
+  background-color: #eb4f4f;
+  width: 180px;
+  height: 50px;
+  border-radius: 15px;
+  border: 1px solid #eb4f4f;
+  color: #fff;
+  align-content: end;
+}
+
+.submit-btn button:hover {
+  background-color: #5599ce;
+  border: none;
+  box-shadow: #5599ce 0 7px 29px 0;
+}

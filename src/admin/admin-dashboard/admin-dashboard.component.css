@@ -1,0 +1,13 @@
+.container-fluid {
+  height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  background-color: rgb(231, 231, 231);
+}
+
+.tab-content {
+  height: calc(100vh - 130px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 50px;
+}

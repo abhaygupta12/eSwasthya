@@ -1,0 +1,60 @@
+<div class="container m-4">
+
+  <ng-container *ngIf="loading">
+   <span class="fs-5 text-primary">Loading...</span> 
+  </ng-container>
+  <ng-container *ngIf="!loading&&patients.length<=0">
+    <span class="text-danger fw-bold">No Patients granted access</span>
+  </ng-container>
+
+  <div class="card p-2" *ngFor="let pat of patients">
+    <div class="details">
+      <div class="row">
+        <div class="col-3 d-flex flex-column justify-content-between">
+          <img [src]="'../../assets/images/doctor.png'" alt="doc image" class=" rounded-circle border border-dark"
+            width="100" height="100">
+        </div>
+        <div class="col-9 d-flex flex-column align-item-center">
+          <span class="docID">{{pat.pID}}</span>
+          <span class="fw-bold">{{pat.fName}} {{pat.lName}}</span>
+          <span class="fst-italic  text-primary">{{pat.email}}</span>
+          <!-- <span class="fw-semibold">{{pat.department}}</span> -->
+          <span>{{pat.city}},{{pat.state}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="view-btn">
+      <button class="btn btn-warning" (click)="viewRecord(pat.pID)">View Record</button>
+    </div>
+  </div>
+
+
+
+
+  <app-progress *ngIf="prgShow" [prgMsg]="prgMsg" [prgSuccess]="prgSuccess" [prgWarning]="prgWarning"
+    [btnTxt]="prgBtnTxt" (btnClick)="closePrg()"></app-progress>
+</div>
+
+
+<div class="modal" tabindex="-1" id="recModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Records</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-3">
+        <div class="row align-items-center mt-3 p-4" *ngIf="files">
+          <ol class="list-group list-group-numbered" *ngFor="let f of files;let i = index">
+            <a [href]="getIPFSUrl(f)" target="_blank" class="list-group-item list-group-item-action my-1">
+              Pateint Medical Record {{i + 1}}
+            </a>
+          </ol>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

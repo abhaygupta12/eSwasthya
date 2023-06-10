@@ -1,0 +1,131 @@
+<div class="container-fluid m-0 p-0">
+  <nav class="navbar navbar-expand-lg bg-light shadow-sm">
+    <div class="container-fluid m-0 p-0">
+      <a class="navbar-brand" href="#">eSwasthya</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+
+            <a class="nav-link active" aria-current="page" [routerLink]="'/'">
+              <i class="fa-solid fa-house"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'patient'">
+              <i class="fa-solid fa-user-injured"></i> Patient</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'doctor'">
+              <i class="fa-solid fa-user-doctor"></i> Doctor</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="'admin'">
+                <i class="fa-solid fa-user-gear"></i> Admin</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <h4 class="card-title text-center">Register</h4>
+        <hr />
+        <form class="mt-2" (ngSubmit)="onSubmit()">
+          <div class="row g-2">
+            <div class="col-12">
+              <div class="mb-2">
+                <label for="exampleFormControlInput1" class="form-label">
+                  Account ID
+                </label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" name="pID" [(ngModel)]="User.pID"
+                  disabled />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput1" placeholder="First Name" name="fName"
+                  [(ngModel)]="User.fName" />
+                <label for="floatingInput1">First Name</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput2" placeholder="Last Name" name="lName"
+                  [(ngModel)]="User.lName" />
+                <label for="floatingInput2">Last Name</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput3" placeholder="City" name="city"
+                  [(ngModel)]="User.city" />
+                <label for="floatingInput3">City</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput4" placeholder="State" name="state"
+                  [(ngModel)]="User.state" />
+                <label for="floatingInput4">State</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-floating mb-3">
+                <input type="date" class="form-control" id="floatingInput5" placeholder="Date of Birth" name="dob"
+                  [(ngModel)]="User.dob" />
+                <label for="floatingInput5">Date of Birth</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="floatingInput6" placeholder="Phone Number" name="phone"
+                  [(ngModel)]="User.phone" />
+                <label for="floatingInput6">Phone Number</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput7" placeholder="Email Address" name="email"
+                  [(ngModel)]="User.email" />
+                <label for="floatingInput7">Email Address</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="inlineCheckbox1" class="form-label">SEX : </label>
+              <input class="form-check-input mx-2" type="checkbox" id="inlineCheckbox1" value="1" name="xType"
+                [(ngModel)]="SX.male" (change)="onXchange()" #male />
+              <label class="form-check-label mr-2" for="inlineCheckbox1">
+                &nbsp; Male
+              </label>
+              <input class="form-check-input mx-2" type="checkbox" id="inlineCheckbox2" value="1" name="xType"
+                [(ngModel)]="SX.female" (change)="onXchange()" #female />
+              <label class="form-check-label mr-2" for="inlineCheckbox1">
+                &nbsp; Female
+              </label>
+              <input class="form-check-input mx-2" type="checkbox" id="inlineCheckbox3" value="1" name="xType"
+                [(ngModel)]="SX.other" (change)="onXchange()" #other />
+              <label class="form-check-label mr-2" for="inlineCheckbox1">
+                &nbsp; Other
+              </label>
+            </div>
+          </div>
+          <div class="submit-btn mt-3">
+            <button type="submit" class="btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-progress *ngIf="prgShow" [prgWarning]="prgWarning" [prgSuccess]="prgSuccess" [prgMsg]="prgMsg" [btnTxt]="prgBtnTxt"
+  (btnClick)="closePrg()"></app-progress>

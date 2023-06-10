@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="card text-start">
+      <div class="card-body">
+        <div class="prg-status">
+          <div class="loading" *ngIf="!prgSuccess && !prgWarning">
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div
+            class="warning text-warning fs-1"
+            *ngIf="prgWarning && !prgSuccess"
+          >
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </div>
+          <div
+            class="success text-success fs-1"
+            *ngIf="prgSuccess && !prgWarning"
+          >
+            <i class="fa-solid fa-thumbs-up"></i>
+          </div>
+        </div>
+        <div class="prg-msg my-2 text-center" [innerHTML]="prgMsg"></div>
+        <div class="prg-btn my-2">
+          <button type="button" (click)="onBtnClick()">{{ btnTxt }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

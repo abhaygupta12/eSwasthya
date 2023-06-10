@@ -1,0 +1,18 @@
+export const specialities = [
+  'Dermatologists',
+  'Endocrinologists',
+  'Emergency Medicine Specialists',
+  'Ophthalmologists',
+  'Podiatrists',
+  'Preventive Medicine Specialists',
+  'Psychiatrists',
+  'Pulmonologists',
+  'Radiologists',
+  'Rheumatologists',
+  'Allergists/Immunologists',
+  'Anesthesiologists',
+  'Cardiologists',
+  'Sports Medicine Specialists',
+  'General Surgeons',
+  'Urologists',
+];

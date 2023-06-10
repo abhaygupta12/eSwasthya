@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="form-group p-3">
+    <label for="record"></label>
+    <input type="file" class="form-control-file" name="record" id="record" placeholder="Medical Record file"
+      (change)="onFileSelected($event)" aria-describedby="fileHelpId">
+    <small id="fileHelpId" class="form-text text-muted">
+      Select Medical Record
+    </small>
+  </div>
+
+  <div class="col-12 d-flex justify-content-center">
+    <button type="button" class="btn btn-warning" (click)="addRecord()">
+      Add Record
+    </button>
+  </div>
+  <div class="row align-items-center mt-3" *ngIf="files.length>=1;else norec">
+    <ol class="list-group" *ngFor="let f of files;let i = index">
+      <div class=" my-1 d-flex justify-content-between">
+        <a [href]="getIPFSUrl(f)" target="_blank" class="list-group-item file"> {{i+1}}: EHR {{i + 1}} </a><button type="button" class="btn btn-sm btn-danger"
+          (click)="onDeleteRecord(f)">Delete <i class="fa-solid fa-trash"></i></button>
+      </div>
+    </ol>
+  </div>
+  <ng-template #norec>
+    <div class="norec m-3 text-danger">No Medical records saved...!!</div>
+  </ng-template>
+  <app-progress *ngIf="prgShow" [prgMsg]="prgMsg" [prgSuccess]="prgSuccess" [prgWarning]="prgWarning"
+    [btnTxt]="prgBtnTxt" (btnClick)="closePrg()"></app-progress>
+</div>

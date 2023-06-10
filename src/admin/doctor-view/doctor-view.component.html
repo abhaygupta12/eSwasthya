@@ -1,0 +1,50 @@
+<div class="refresh-btn d-flex justify-content-end">
+  <button class="btn btn-outline-dark" (click)="getDoctors()">
+    Refresh &nbsp;<i class="fas fa-sync"></i>
+  </button>
+</div>
+<div class="container mt-2">
+  <table class="table table-stripped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Doctor Details</th>
+        <th>Document</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody *ngIf="doctorList.length >= 1; else noData">
+      <tr *ngFor="let doc of doctorList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>
+          <div class="row">
+            <div class="col-3 d-flex flex-column justify-content-center">
+              <img [src]="
+                  getIpfsUrl(doc.imageHash) || '../../assets/images/doctor.png'
+                " alt="doc image" class="rounded-circle border border-dark" width="100" height="100" />
+            </div>
+            <div class="col-9 d-flex flex-column align-item-center">
+              <span class="docID">{{ doc.docID }}</span>
+              <span class="fw-bold">{{ doc.fName }} {{ doc.lName }}</span>
+              <span class="fst-italic text-primary">{{ doc.emailID }}</span>
+              <span class="fw-semibold">{{ doc.department }}</span>
+              <span>{{ doc.city }},{{ doc.state }}</span>
+            </div>
+          </div>
+        </td>
+        <td>
+          <a [href]="getIpfsUrl(doc.document)" target="_blank">
+            <img src="../../assets/images/doc.png" width="80" height="80" alt="document" />
+          </a>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="deleteDoctor(doc.docID)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+    <ng-template #noData>
+      <div class="fw-bold text-danger">No Doctors in the Network</div>
+    </ng-template>
+  </table>
+</div>

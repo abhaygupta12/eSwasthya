@@ -1,0 +1,11 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.view-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
