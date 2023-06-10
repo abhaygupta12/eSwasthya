@@ -1,5 +1,5 @@
 # eSwasthya
-<h4>eSwasthya</h4>, <p>a decentralised application (DApp) based on blockchain technology and the 
+<h4>eSwasthya</h4><p>a decentralised application (DApp) based on blockchain technology and the 
 Interplanetary File System (IPFS). Our goal is to build a strong and secure platform for 
 decentralised storage and access control of Electronic Health Records (EHR). eSwasthya 
 ensures transparency, auditability, and scalability while reducing single points of failure by 
