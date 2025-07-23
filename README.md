@@ -1,32 +1,109 @@
-# eSwasthya
-<h4>eSwasthya</h4><p>a decentralised application (DApp) based on blockchain technology and the 
-Interplanetary File System (IPFS). Our goal is to build a strong and secure platform for 
-decentralised storage and access control of Electronic Health Records (EHR). eSwasthya 
-ensures transparency, auditability, and scalability while reducing single points of failure by 
-leveraging the Ethereum blockchain, IPFS, and public key cryptography. Future 
-enhancements will involve the addition of new user categories such as Nominee, Lab 
-Technician, and Academic Researchers. Also, it will involve the implemention of a 
-Appointment module where the patients can take appointments for their treatments. 
-Furthermore, we intend to evaluate the existing and proposed architectures by considering 
-cloud-based solutions, examining their compatibility and potential system benefits. The 
-eSwasthya project is set to revolutionise health record management, paving the way for a 
-more secure, accessible, and efficient healthcare ecosystem.</p>
+# eSwasthya: Decentralized Electronic Health Records (EHR) DApp
 
-<h4>Development Environment</h4>
+![eSwasthya Interface](https://github.com/abhaygupta12/eSwasthya/assets/71281005/7e986239-87cc-4b67-b7ae-d4d7d9c906bb)
 
-Implementation:
+## Overview
 
-Angular: a front-end web application framework used for building the user interface of the blockchain application
+**eSwasthya** is a decentralized application (DApp) developed as a final year college project to revolutionize health record management by leveraging Blockchain (Ethereum) and the Interplanetary File System (IPFS).
 
-Metamask: a browser extension used for interacting with Ethereum blockchain networks and managing digital assets
-Experimental Setup:
+### Key Objectives
 
+- **Secure, Tamper-Proof EHR Storage:** Encrypt and store patient health records in a decentralized, distributed network eliminating single points of failure.
+- **Transparent & Auditable:** Use of public key cryptography and blockchain ensures auditability and prevents unauthorized data access.
+- **Scalability & Flexibility:** Designed to allow seamless system expansion and integration of new user roles and modules.
 
-Node.js: a JavaScript runtime environment used for building server-side applications
+---
 
-Solidity: a programming language used for writing smart contracts on the Ethereum blockchain
+## Features
 
-Ganache: a personal blockchain for Ethereum development and testing
+- **Decentralized EHR Storage:** Store, manage, and share health records securely using Ethereum and IPFS.
+- **Access Control:** Fine-grained, cryptographically secure access control for multiple healthcare stakeholder types.
+- **Audit Log:** Every access and modification is logged on-chain to enable trust and compliance.
+- **Role-Based Interface:** Supports current roles like Patient and Doctor; future extensions for Nominee, Lab Technician, Academic Researchers planned.
+- **Appointment Scheduling** (Planned): Upcoming module for patients to book healthcare appointments.
+- **Cloud Compatibility Assessment:** Ongoing evaluation for integrating or migrating components to cloud-based infrastructure for additional scaling and efficiency.
 
-IPFS (InterPlanetary File System): a distributed file system for storing and sharing files in a peer-to-peer network
-![image](https://github.com/abhaygupta12/eSwasthya/assets/71281005/7e986239-87cc-4b67-b7ae-d4d7d9c906bb)
+---
+
+## Development Environment
+
+| Technology     | Purpose                                                  |
+|----------------|----------------------------------------------------------|
+| **Angular**    | User interface/front-end web application                |
+| **Metamask**   | Ethereum wallet & web3 login for blockchain interaction |
+| **Node.js**    | Backend, server-side scripts & API logic                |
+| **Solidity**   | Smart contracts for secure on-chain transactions        |
+| **Ganache**    | Local blockchain for testing and development            |
+| **IPFS**       | Distributed, decentralized storage of EHR files         |
+
+---
+
+## Architecture
+
+1. **User Access:** Patients and health professionals log in using Metamask (public key authentication).
+2. **Smart Contract Interaction:** User actions trigger Solidity smart contracts on the Ethereum blockchain (via web3.js).
+3. **EHR Storage:** Health records are encrypted and pushed to IPFS for storage; associated hashes are securely referenced on the blockchain.
+4. **Record Retrieval:** Only authorized users with valid credentials can retrieve and decrypt records as permitted via grant logic in smart contracts.
+5. **Auditability:** Every access, grant, or update event is immutably recorded on chain.
+
+---
+
+## Getting Started
+
+### Requirements
+
+- Node.js (latest LTS version)
+- Angular CLI
+- Metamask Browser Extension
+- Ganache (for local blockchain dev)
+- IPFS installation or access to Infura IPFS gateway
+
+### Setup Instructions
+
+1. **Clone repo**
+
+2. **Backend & Smart Contracts**
+- Install Node dependencies:
+  ```
+  npm install
+  ```
+- Start Ganache and deploy contracts (see `/contracts` and deployment scripts).
+
+3. **Frontend**
+- Install Angular dependencies:
+  ```
+  cd client
+  npm install
+  ```
+- Run Angular app:
+  ```
+  ng serve
+  ```
+
+4. **Metamask & IPFS**
+- Import test accounts from Ganache into Metamask.
+- For IPFS, either run a local daemon or set Infura IPFS as the gateway in the code.
+
+---
+
+## Future Roadmap
+
+- **Additional User Roles:** Nominee, Lab Technician, Researcher.
+- **Appointment Module:** Integrated appointment scheduling from the DApp.
+- **Cloud Integration:** Evaluation of hybrid cloud-blockchain architectures for performance, compliance, and resilience improvements.
+
+---
+
+## Contributions
+
+Open to feedback, suggestions, and collaborations for enhancing eSwasthya’s reach and robustness!
+
+---
+
+## License
+
+This repository is for academic and educational use. For production deployments or research collaborations, please contact the author.
+
+---
+
+> For demo, documentation, and technical details, please see the [eSwasthya GitHub repository](https://github.com/abhaygupta12/eSwasthya).
